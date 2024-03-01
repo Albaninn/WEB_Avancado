@@ -1,28 +1,32 @@
 html, body {
-    height: 100%;
     margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7;
+  }
+  
+  /* Garante que o container do jogo ocupe pelo menos a altura total da viewport */
+  .game-container {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    text-align: center;
-    transition: background-color 0.5s;
-  }
-  
-  #game-container {
-    width: 100%;
-    max-width: 600px; /* or whatever max-width you prefer */
   }
   
   #message {
     margin-top: 20px;
   }
   
-  input[type="text"] {
+  input[type="text"], button {
     margin-top: 10px;
-  }
-  
-  button {
-    margin-left: 10px;
   }
   

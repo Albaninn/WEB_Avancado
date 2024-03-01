@@ -10,15 +10,18 @@ body {
 
 h1 {
   margin-bottom: 10px;
+  text-align: center;
 }
 
 p {
   margin-bottom: 10px;
+  text-align: center;
 }
 
 ul {
   list-style: none;
   padding: 0;
+  text-align: center;
 }
 
 ul li {

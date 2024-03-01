@@ -1,19 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Color Guessing Game</title>
-<link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div id="game-container">
+<div class="game-container">
   <h1>From the list below, what color am I thinking of?</h1>
   <p id="colorList">aqua, blue, coral, gold, green, purple, red, teal, tomato, yellow</p>
   <p>You guessed!</p>
-  <p>It took you <span id="guessCount">0</span> guesses to finish the game</p>
+  <div id="guesses" style="display: none;">
+    <p>It took you <span id="guessCount">0</span> guesses to finish the game</p>
+  </div>
 
   <input type="text" id="userGuess">
-  <button onclick="makeGuess()">Make a guess</button>
+  <button id="guessBtn" onclick="makeGuess()">Make a guess</button>
 
   <p id="message"></p>
 </div>
