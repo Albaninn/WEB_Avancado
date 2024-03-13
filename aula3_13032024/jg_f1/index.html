@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corrida F1 de Apostas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game">
+        <div id="saldo">Saldo: R$100</div>
+        <div id="apostaForm">
+            <input type="number" id="valorAposta" min="5" value="5" placeholder="Valor da Aposta (Mínimo R$5)">
+
+            <select id="pilotoEscolhido">
+                <option value="1">Piloto 1</option>
+                <option value="2">Piloto 2</option>
+                <option value="3">Piloto 3</option>
+                <option value="4">Piloto 4</option>
+                <option value="5">Piloto 5</option>
+            </select>
+            <button id="startRace">Começar Corrida</button>
+            <div id="itensCompra">
+                <button id="aumentaVelocidade">Aumentar Velocidade (R$7)</button>
+                <button id="reduzOponente">Reduzir Oponente Aleatório (R$5)</button>
+                <button id="reduzPrimeiro">Reduzir Primeiro Lugar na Metade da Corrida (R$10)</button>
+            </div>  
+        </div>
+              
+        <div id="pista">
+            <div class="faixa">
+                <div class="carro" id="carro1"></div>
+            </div>
+            <div class="distancia" id="distancia1">Distância 1: 0m</div>
+            
+            <div class="faixa">
+                <div class="carro" id="carro2"></div>
+            </div>
+            <div class="distancia" id="distancia2">Distância 2: 0m</div>
+            
+            <div class="faixa">
+                <div class="carro" id="carro3"></div>
+            </div>
+            <div class="distancia" id="distancia3">Distância 3: 0m</div>
+            
+            <div class="faixa">
+                <div class="carro" id="carro4"></div>
+            </div>
+            <div class="distancia" id="distancia4">Distância 4: 0m</div>
+            
+            <div class="faixa">
+                <div class="carro" id="carro5"></div>
+            </div>
+            <div class="distancia" id="distancia5">Distância 5: 0m</div>
+            <div class="linhaChegada"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

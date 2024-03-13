@@ -1,0 +1,131 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+#game {
+    max-width: 850px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#saldo {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#apostaForm {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#apostaForm input,
+#apostaForm select {
+    padding: 10px;
+    margin-right: 10px;
+}
+
+#startRace {
+    padding: 10px 20px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#startRace:hover {
+    background-color: #4cae4c;
+}
+
+#itensCompra {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#itensCompra button {
+    flex: 1;
+    padding: 10px;
+    margin: 0 10px;
+    background-color: #f2f2f2;
+    border: 1px solid #dcdcdc;
+    cursor: pointer;
+}
+
+#itensCompra button:hover {
+    background-color: #e2e2e2;
+}
+
+#pista {
+    position: relative;
+    width: 100%;
+    height: 450px; /* Ajuste conforme necessário */
+    border: 1px solid #000;
+    margin-bottom: 20px;
+}
+
+.linhaChegada {
+    position: absolute;
+    bottom: 0;
+    right: 10px; /* Coloca a linha de chegada no final da pista */
+    width: 40px; /* Largura da linha de chegada dobrada */
+    height: 100%; /* Altura para corresponder à da pista */
+    background-image: repeating-linear-gradient(
+        #ffffff,
+        #ffffff 20px,
+        #000000 20px,
+        #000000 40px
+    );
+}
+
+
+.faixa {
+    position: relative;
+    height: 50px; /* Ajuste conforme necessário */
+    border-bottom: 1px solid #ccc; /* Para visualizar as faixas */
+}
+
+.carro {
+    position: absolute;
+    width: 60px; /* Ajuste para o tamanho da sua imagem */
+    height: 40px; /* Ajuste para o tamanho da sua imagem */
+    background-image: url('f1car.png');
+    background-size: cover;
+    bottom: 15px; /* Ajuste conforme necessário para centralizar na faixa */
+}
+
+/* Filtros de cores para cada carro */
+#carro1 {
+    filter: hue-rotate(0deg); /* Mantém a cor original */
+}
+
+#carro2 {
+    filter: hue-rotate(90deg); /* Verde */
+}
+
+#carro3 {
+    filter: hue-rotate(180deg); /* Azul claro */
+}
+
+#carro4 {
+    filter: hue-rotate(270deg); /* Rosa */
+}
+
+#carro5 {
+    filter: hue-rotate(60deg); /* Amarelo */
+}
+
+.distancia {
+    text-align: center;
+    margin-bottom: 5px;
+}
