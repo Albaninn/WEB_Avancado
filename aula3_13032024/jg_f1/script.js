@@ -2,7 +2,8 @@ let larguraPista = 800;
 let linhaChegada = 750;
 let saldo = 100; // Saldo inicial do jogador
 let valorAposta = 0; // Valor apostado
-let carroApostado; // Carro escolhido para a aposta
+let carroApostado = parseInt(document.getElementById('pilotoEscolhido').value, 10);
+// Carro escolhido para a aposta
 
 // Atualiza o saldo na interface
 function atualizaSaldo() {
@@ -45,7 +46,13 @@ function iniciarCorrida() {
     atualizaSaldo();
     
     // Destaca o carro apostado
-    document.querySelector(`#carro${carroApostado}`).classList.add('carroDestacado');
+    document.querySelectorAll('.carro').forEach((carro, index) => {
+        // Remove o destaque de todos os carros antes de destacar o carro apostado
+        carro.classList.remove('carroDestacado');
+        if (index + 1 === carroApostado) {
+            carro.classList.add('carroDestacado');
+        }
+    });
 
     let carros = document.querySelectorAll('.carro');
     let intervalo = setInterval(function() {
@@ -54,22 +61,27 @@ function iniciarCorrida() {
             let posicaoAtual = parseInt(carro.style.left || 0, 10);
             let avanco = Math.floor(Math.random() * 10) + 1;
             carro.style.left = posicaoAtual + avanco + 'px';
-
+    
+            // Atualiza a distância percorrida na interface
+            document.getElementById('distancia' + (i + 1)).innerText = `Distância ${i + 1}: ${posicaoAtual + avanco}m`;
+    
             if (posicaoAtual + avanco >= linhaChegada) {
                 clearInterval(intervalo);
-                let resultado = (i + 1) === carroApostado ? 'Você ganhou!' : 'Você perdeu.';
-                if ((i + 1) === carroApostado) {
+                let vencedor = i + 1; // O carro que ganhou a corrida
+                if (carroApostado === vencedor) {
                     saldo += valorAposta * 2; // Dobrar a aposta para o saldo
-                    alert('Você ganhou!');
+                    alert(`Você ganhou! Você apostou no carro ${carroApostado} e ele venceu a corrida!`);
                 } else {
-                    alert(resultado);
+                    alert(`Você perdeu. Você apostou no carro ${carroApostado}, mas o carro ${vencedor} venceu a corrida.`);
                 }
                 resetCorrida();
                 break;
             }
         }
     }, 50);
+    
 }
+
 
 // Habilita ou desabilita os botões de buff/debuff
 function toggleItemButtons(disable) {
