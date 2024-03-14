@@ -9,25 +9,26 @@ function atualizaSaldo() {
     document.getElementById('saldo').innerText = 'Saldo: R$' + saldo;
 }
 
-// Reseta a posição dos carros e habilita os botões para uma nova corrida
+// Reseta a corrida para o estado inicial
 function resetCorrida() {
-    let carros = document.getElementsByClassName('carro');
-    for (let carro of carros) {
-        carro.style.left = '0px';
-    }
-    toggleItemButtons(false); // Habilita os botões para a próxima corrida
-    atualizaSaldo(); // Atualiza o saldo na interface
+    document.querySelectorAll('.carro').forEach(carro => {
+        carro.style.left = '0'; // Reseta a posição dos carros
+        carro.classList.remove('carroDestacado'); // Remove o destaque de todos os carros
+    });
+    toggleItemButtons(false); // Habilita os botões para uma nova corrida
+    atualizaSaldo();
 }
 
 // Inicializa o jogo
 function init() {
     resetCorrida();
+    atualizaSaldo();
 }
 
 // Lógica para iniciar a corrida
 function iniciarCorrida() {
-    valorAposta = parseInt(document.getElementById('valorAposta').value, 10);
-    carroApostado = parseInt(document.getElementById('pilotoEscolhido').value, 10);
+    let valorAposta = parseInt(document.getElementById('valorAposta').value, 10);
+    let carroApostado = parseInt(document.getElementById('pilotoEscolhido').value, 10);
     
     if (isNaN(valorAposta) || valorAposta < 5) {
         alert('Aposta inválida. O valor mínimo de aposta é R$5.');
@@ -35,15 +36,18 @@ function iniciarCorrida() {
     }
     
     if (saldo < valorAposta) {
-        alert('Saldo insuficiente para a aposta.');
+        alert('Saldo insuficiente.');
         return;
     }
     
     saldo -= valorAposta;
     toggleItemButtons(true); // Desabilita os botões durante a corrida
     atualizaSaldo();
+    
+    // Destaca o carro apostado
+    document.querySelector(`#carro${carroApostado}`).classList.add('carroDestacado');
 
-    let carros = document.getElementsByClassName('carro');
+    let carros = document.querySelectorAll('.carro');
     let intervalo = setInterval(function() {
         for (let i = 0; i < carros.length; i++) {
             let carro = carros[i];
@@ -51,16 +55,14 @@ function iniciarCorrida() {
             let avanco = Math.floor(Math.random() * 10) + 1;
             carro.style.left = posicaoAtual + avanco + 'px';
 
-            document.getElementById('distancia' + (i + 1)).innerText = `Distância ${i + 1}: ${posicaoAtual + avanco}m`;
-
             if (posicaoAtual + avanco >= linhaChegada) {
                 clearInterval(intervalo);
-                let vencedor = i + 1;
-                if (carroApostado === vencedor) {
+                let resultado = (i + 1) === carroApostado ? 'Você ganhou!' : 'Você perdeu.';
+                if ((i + 1) === carroApostado) {
                     saldo += valorAposta * 2; // Dobrar a aposta para o saldo
                     alert('Você ganhou!');
                 } else {
-                    alert('Você perdeu.');
+                    alert(resultado);
                 }
                 resetCorrida();
                 break;
