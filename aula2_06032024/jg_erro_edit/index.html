@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matching Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="init()">
+
+<div id="content">
+    <h1>Matching Game</h1>
+    <select id="difficulty">
+        <option value="easy">Fácil</option>
+        <option value="medium" selected>Médio</option>
+        <option value="hard">Difícil</option>
+    </select>
+    <button onclick="startGame()">Iniciar Jogo</button>
+    <h3>Clique na imagem extra à esquerda</h3>
+    <div id="score">Pontuação: 0</div>
+    <div id="topScore">Melhor Pontuação: 0</div>
+    <div class="container">
+        <div id="left" class="panels"></div>
+        <div id="right" class="panels"></div>
+    </div>
+    <div id="timer">Tempo: </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
