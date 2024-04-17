@@ -1,0 +1,229 @@
+:root {
+  --primary-1: #ffffff;
+  --primary-2: #fffdd0;
+  --primary-3: #000000;
+  --secondary-1: #0000ff;
+  --accent-1: #ffc000;
+  --accent-2: #9a0a9a;
+}
+
+body {
+  background-color: #aaa;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+a {
+  font-weight: bold;
+}
+
+h1 {
+  z-index: 2;
+}
+
+button {
+  font-size: 16px;
+  padding: 10px;
+  border: none;
+  width: 100px;
+  height: 40px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.super-center {
+  display: grid;
+  place-items: center;
+}
+
+.color-container {
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.color-container :first-child {
+  width: 200px;
+}
+
+.color-neutral {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+}
+
+.color-primary {
+  width: 120px;
+  height: 120px;
+  border-radius: 120px;
+}
+
+.color-secondary {
+  width: 60px;
+  height: 60px;
+  border-radius: 60px;
+}
+
+.color-accent {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+}
+
+.primary-1 {
+  background-color: var(--primary-1);
+}
+
+.primary-2 {
+  background-color: var(--primary-2);
+}
+
+.primary-3 {
+  background-color: var(--primary-3);
+}
+
+.secondary-1 {
+  background-color: var(--secondary-1);
+}
+
+.accent-1 {
+  background-color: var(--accent-1);
+}
+
+.accent-2 {
+  background-color: var(--accent-2);
+}
+
+.quad-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.quad {
+  width: 300px;
+  height: 300px;
+  flex: 0 1 150px;
+  border-radius: 20px;
+}
+
+.quad-content {
+  width: 300px;
+  height: 300px;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+}
+
+.one {
+  background-color: var(--primary-1);
+  color: var(--primary-3);
+}
+
+.two {
+  background-color: var(--primary-2);
+  color: var(--primary-3);
+}
+
+.three {
+  background-color: var(--primary-3);
+  color: var(--primary-2);
+}
+
+.four {
+  background-color: var(--secondary-1);
+  color: var(--primary-2);
+}
+
+/* Call to action -- accent colors */
+
+.one a {
+  color: var(--accent-2);
+}
+
+.two a {
+  color: var(--accent-2);
+}
+
+.three a {
+  color: var(--accent-1);
+}
+
+.four a {
+  color: var(--accent-1);
+}
+
+.one button {
+  background-color: var(--accent-2);
+}
+
+.two button {
+  background-color: var(--accent-2);
+}
+
+.three button {
+  background-color: var(--accent-2);
+}
+
+.four button {
+  background-color: var(--accent-1);
+}
+
+.four button:first-of-type {
+  background-color: var(--primary-2);
+}
+
+.blob-1 {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  z-index: 1;
+  position: absolute;
+  transform: translate(60px, -80px);
+}
+
+.blob-2 {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  z-index: 2;
+  position: absolute;
+  transform: translate(110px, -100px);
+}
+
+.one .blob-1 {
+  background-color: var(--primary-2);
+}
+
+.one .blob-2 {
+  background-color: var(--secondary-1);
+}
+
+.two .blob-1 {
+  background-color: var(--primary-1);
+}
+
+.two .blob-2 {
+  background-color: var(--secondary-1);
+}
+
+.three .blob-1 {
+  background-color: var(--secondary-1);
+}
+
+.three .blob-2 {
+  background-color: var(--primary-2);
+}
+
+.four .blob-1 {
+  background-color: var(--primary-3);
+}
+
+.four .blob-2 {
+  background-color: var(--primary-2);
+}
