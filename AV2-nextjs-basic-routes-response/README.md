@@ -1,0 +1,3 @@
+# Codegus
+
+## Nextjs Basic Routes
