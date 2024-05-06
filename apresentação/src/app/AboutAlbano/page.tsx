@@ -3,7 +3,13 @@ import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "../components/TabButton";
 
-const TAB_DATA = [
+interface TabData {
+  title: string;
+  id: string;
+  content: React.ReactNode;
+}
+
+const TAB_DATA: TabData[] = [
   {
     title: "skills",
     id: "skills",
@@ -22,9 +28,6 @@ const TAB_DATA = [
       <ul className="list-disc pl-2">
         <li>Bacharelado Sistemas de Informação</li>
         <li>Universidade Positivo 2022-2025</li>
-        <br></br>
-        <li>Análise e Desenvolvimento de Sistemas</li>
-        <li>Pontificia Universidade Católica 2021-2022</li>
       </ul>
     ),
   },
@@ -43,18 +46,18 @@ const TAB_DATA = [
   },
 ];
 
-const AboutPrieto = () => {
-  const [tab, setTab] = useState("skills");
+const AboutAlbano:React.FC = () => {
+  const [tab, setTab] = useState<string>("skills");
   const [isPending, startTransition] = useTransition();
 
-  const handleTabChange = (id) => {
+  const handleTabChange = (id: string) => {
     startTransition(() => {
       setTab(id);
     });
   };
 
   return (
-    <section className="text-white lg:py-16" id="aboutprieto">
+    <section className="text-white lg:py-16" id="aboutalbano">
      
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
       <div className="rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 w-[250px] h-[250px] lg:w-[260px] lg:h-[360px] relative">
@@ -67,7 +70,7 @@ const AboutPrieto = () => {
             />
           </div>
         <div className="mt-3 md:mt-0 text-base flex flex-col h-full">
-          <h3 className="text-3xl font-bold text-white mb-4">Lucas Prieto Accorsi</h3>
+          <h3 className="text-3xl font-bold text-white mb-4">Lucas Albano</h3>
           <p className="text-base lg:text-lg">
           Discente de Sistemas de Informação, atualmente no terceiro ano do curso. 
           Minha habilidade em aprender com facilidade 
@@ -98,7 +101,7 @@ const AboutPrieto = () => {
             </TabButton>
           </div>
           <div className="mt-8">
-            {TAB_DATA.find((t) => t.id === tab).content}
+            {TAB_DATA.find((t) => t.id === tab)?.content || <p>Conteúdo não encontrado.</p>}
           </div>
           
         </div>
@@ -108,4 +111,4 @@ const AboutPrieto = () => {
   );
 };
 
-export default AboutPrieto;
+export default AboutAlbano;

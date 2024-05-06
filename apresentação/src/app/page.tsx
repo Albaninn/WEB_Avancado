@@ -2,7 +2,7 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 
-const About =() =>{
+const About: React.FC =() =>{
   return (
     <div className="container mt-24 mx-auto px-12 py-4">
       <section className="text-white" id="about">
@@ -24,7 +24,7 @@ const About =() =>{
           <br/>
           
         </div>
-        <Image src="/images/linguagem.png" width={500} height={500} />
+        <Image src="/images/linguagem.png" width={500} height={500} alt="..."/>
       </div>
       
      
@@ -32,4 +32,4 @@ const About =() =>{
       </div>
     );
 }
-  export default About;
+export default About;

@@ -2,7 +2,7 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 
-const About =() =>{
+const About: React.FC =() =>{
   return (
       <section className="text-white" id="about">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
@@ -22,7 +22,7 @@ const About =() =>{
           <br/>
           
         </div>
-        <Image src="/images/linguagem.png" width={500} height={500} />
+        <Image src="/images/linguagem.png" width={500} height={500} alt="..." />
       </div>
       
         

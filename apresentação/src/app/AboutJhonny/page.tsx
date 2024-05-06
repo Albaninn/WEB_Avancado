@@ -3,7 +3,13 @@ import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "../components/TabButton";
 
-const TAB_DATA = [
+interface TabData {
+  title: string;
+  id: string;
+  content: React.ReactNode;
+}
+
+const TAB_DATA: TabData[] = [
   {
     title: "skills",
     id: "skills",
@@ -52,11 +58,11 @@ const TAB_DATA = [
   },
 ];
 
-const AboutJhonny = () => {
-  const [tab, setTab] = useState("skills");
+const AboutJhonny: React.FC = () => {
+  const [tab, setTab] = useState<string>("skills");
   const [isPending, startTransition] = useTransition();
 
-  const handleTabChange = (id) => {
+  const handleTabChange = (id: string) => {
     startTransition(() => {
       setTab(id);
     });
@@ -107,7 +113,7 @@ const AboutJhonny = () => {
             </TabButton>
           </div>
           <div className="mt-8">
-            {TAB_DATA.find((t) => t.id === tab).content}
+            {TAB_DATA.find((t) => t.id === tab)?.content || <p>Conteúdo não encontrado.</p>}
           </div>
           
         </div>

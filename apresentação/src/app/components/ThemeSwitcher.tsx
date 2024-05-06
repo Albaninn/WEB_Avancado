@@ -1,8 +1,8 @@
 // components/ThemeSwitcher.tsx
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const ThemeSwitcher = () => {
-  const [darkMode, setDarkMode] = useState(false);
+const ThemeSwitcher: React.FC = () => {
+  const [darkMode, setDarkMode] = useState<boolean>(false);
 
   useEffect(() => {
     const html = document.documentElement;
