@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const Developers =() =>{
   return (
-      <section className="text-white" id="developers">
+      <section className=" text-white grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 flex" id="developers">
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
 
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">

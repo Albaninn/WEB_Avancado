@@ -2,6 +2,9 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "../components/TabButton";
+import GithubIcon from "../../../public/github-icon.svg";
+import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import Link from "next/link";
 
 const TAB_DATA = [
   {
@@ -23,8 +26,8 @@ const TAB_DATA = [
         <li>Bacharelado Sistemas de Informação</li>
         <li>Universidade Positivo 2022-2025</li>
         <br></br>
-        <li>Análise e Desenvolvimento de Sistemas</li>
-        <li>Pontificia Universidade Católica 2021-2022</li>
+        <li>Bacharelado em Direito</li>
+        <li>Pontificia Universidade Católica </li>
       </ul>
     ),
   },
@@ -41,6 +44,20 @@ const TAB_DATA = [
       </ul>
     ),
   },
+  {
+    title: "Contact",
+    id: "contact",
+    content: (
+      <div className="socials flex flex-row">
+      <Link href="https://github.com/">
+        <Image src={GithubIcon} alt="Github Icon" width={30}height={30}/>
+      </Link>
+      <Link href="https://br.linkedin.com/in/">
+        <Image src={LinkedinIcon} alt="Linkedin Icon" width={30}height={30} />
+        </Link>
+      </div>
+    ),
+  }
 ];
 
 const AboutPrieto = () => {
@@ -61,12 +78,14 @@ const AboutPrieto = () => {
             <Image
               src="/"
               alt="hero image"
-              className="rounded-full bg-[#121212] relative transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              className="rounded-full bg-[#121212]  relative transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               width={240}
               height={300}
             />
           </div>
         <div className="mt-3 md:mt-0 text-base flex flex-col h-full">
+          <br/>
+          <br/>
           <h3 className="text-3xl font-bold text-white mb-4">Lucas Prieto Accorsi</h3>
           <p className="text-base lg:text-lg">
           Discente de Sistemas de Informação, atualmente no terceiro ano do curso. 
@@ -95,6 +114,13 @@ const AboutPrieto = () => {
             >
               {" "}
               Certificações{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("contact")}
+              active={tab === "contact"}
+            >
+              {" "}
+              Contato{" "}
             </TabButton>
           </div>
           <div className="mt-8">

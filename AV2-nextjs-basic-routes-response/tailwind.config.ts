@@ -2,11 +2,11 @@ import type { Config } from "tailwindcss";
 const colors = require("tailwindcss/colors");
 
 const config: Config = {
-  darkMode: 'class',
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./node_modules/flowbite/**/*.js",
   ],
   theme: {
     extend: {
@@ -18,22 +18,15 @@ const config: Config = {
     },
     colors:{
       ...colors,
-      primary: colors.blue,
-      secondary: colors.green,
+      primary: colors.orange,
+      secondary: colors.black,
       textPrimary: colors.white,
-      dark: {
-        primary: colors.gray[800],
-        secondary: colors.gray[700],
-        textPrimary: colors.gray[300],
-      },
-      light: {
-        primary: colors.blue[500],
-        secondary: colors.green[500],
-        textPrimary: colors.white,
-      },
+      
       
     },
   },
   plugins: [],
+
+  
 };
 export default config;

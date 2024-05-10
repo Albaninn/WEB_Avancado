@@ -2,6 +2,9 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "../components/TabButton";
+import GithubIcon from "../../../public/github-icon.svg";
+import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import Link from "next/link";
 
 const TAB_DATA = [
   {
@@ -22,6 +25,7 @@ const TAB_DATA = [
       <ul className="list-disc pl-2">
         <li>Bacharelado Sistemas de Informação</li>
         <li>Universidade Positivo 2022-2025</li>
+        <br></br>
       </ul>
     ),
   },
@@ -38,6 +42,20 @@ const TAB_DATA = [
       </ul>
     ),
   },
+  {
+    title: "Contact",
+    id: "contact",
+    content: (
+      <div className="socials flex flex-row">
+      <Link href="https://github.com/">
+        <Image src={GithubIcon} alt="Github Icon" width={30}height={30}/>
+      </Link>
+      <Link href="https://br.linkedin.com/in/">
+        <Image src={LinkedinIcon} alt="Linkedin Icon" width={30}height={30} />
+        </Link>
+      </div>
+    ),
+  }
 ];
 
 const AboutAlbano = () => {
@@ -64,6 +82,8 @@ const AboutAlbano = () => {
             />
           </div>
         <div className="mt-3 md:mt-0 text-base flex flex-col h-full">
+        <br/>
+          <br/>
           <h3 className="text-3xl font-bold text-white mb-4">Lucas Albano</h3>
           <p className="text-base lg:text-lg">
           Discente de Sistemas de Informação, atualmente no terceiro ano do curso. 
@@ -92,6 +112,13 @@ const AboutAlbano = () => {
             >
               {" "}
               Certificações{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("contact")}
+              active={tab === "contact"}
+            >
+              {" "}
+              Contato{" "}
             </TabButton>
           </div>
           <div className="mt-8">

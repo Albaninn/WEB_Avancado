@@ -2,6 +2,9 @@
 import React, { useTransition, useState } from "react";
 import Image from "next/image";
 import TabButton from "../components/TabButton";
+import GithubIcon from "../../../public/github-icon.svg";
+import LinkedinIcon from "../../../public/linkedin-icon.svg";
+import Link from "next/link";
 
 const TAB_DATA = [
   {
@@ -50,6 +53,20 @@ const TAB_DATA = [
       </ul>
     ),
   },
+  {
+    title: "Contact",
+    id: "contact",
+    content: (
+      <div className="socials flex flex-row">
+      <Link href="https://github.com/jguimaraesdev">
+        <Image src={GithubIcon} alt="Github Icon" width={30}height={30}/>
+      </Link>
+      <Link href="https://br.linkedin.com/in/jhonny-guimaraes">
+        <Image src={LinkedinIcon} alt="Linkedin Icon" width={30}height={30} />
+        </Link>
+      </div>
+    ),
+  }
 ];
 
 const AboutJhonny = () => {
@@ -63,12 +80,12 @@ const AboutJhonny = () => {
   };
 
   return (
-    <section className="text-white lg:py-16" id="aboutjhonny">
+    <section className="text-white mt-3 md:mt-0 text-base flex flex-col lg:py-16" id="aboutjhonny">
      
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
       <div className="rounded-full bg-gradient-to-br from-primary-500 to-secondary-500 w-[250px] h-[250px] lg:w-[260px] lg:h-[360px] relative">
             <Image
-              src="/images/IMG_0430.png"
+              src="/images/hero-image.png"
               alt="hero image"
               className="rounded-full bg-[#121212] relative transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               width={240}
@@ -76,6 +93,8 @@ const AboutJhonny = () => {
             />
           </div>
         <div className="mt-3 md:mt-0 text-base flex flex-col h-full">
+          <br/>
+          <br/>
           <h3 className="text-3xl font-bold text-white mb-4">Jhonny Guimarães</h3>
           <p className="text-base lg:text-lg">
           Discente de Sistemas de Informação, atualmente no terceiro ano do curso. 
@@ -104,6 +123,13 @@ const AboutJhonny = () => {
             >
               {" "}
               Certificações{" "}
+            </TabButton>
+            <TabButton
+              selectTab={() => handleTabChange("contact")}
+              active={tab === "contact"}
+            >
+              {" "}
+              Contato{" "}
             </TabButton>
           </div>
           <div className="mt-8">
